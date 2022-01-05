@@ -1,0 +1,26 @@
+{
+  "name": "virtual-classroom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/herinzaveri/virtual-classroom.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/herinzaveri/virtual-classroom/issues"
+  },
+  "homepage": "https://github.com/herinzaveri/virtual-classroom#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "joi": "^17.5.0",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.3.3"
+  }
+}
