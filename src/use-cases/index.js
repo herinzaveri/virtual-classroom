@@ -26,8 +26,32 @@ const generateJwtToken = makeGenerateJwtToken({
 	Joi,
 });
 
+const makeAssignAssignmentToStudent = require("./assign-assignment-to-student");
+const assignAssignmentToStudent = makeAssignAssignmentToStudent({
+	submissionsDb: DB.submissionsDb,
+	usersDb: DB.usersDb,
+	Joi,
+});
+
+const makeAddNewAssignment = require("./add-new-assignment");
+const addNewAssignment = makeAddNewAssignment({
+	assignAssignmentToStudent,
+	assignmentDb: DB.assignmentDb,
+	Joi,
+});
+
+const makeDeleteAssignment = require("./delete-assignment");
+const deleteAssignment = makeDeleteAssignment({
+	assignmentDb: DB.assignmentDb,
+	submissionsDb: DB.submissionsDb,
+	Joi,
+});
+
 module.exports = {
 	generateJwtToken,
 	getUserByUsername,
 	addNewUser,
+	addNewAssignment,
+	assignAssignmentToStudent,
+	deleteAssignment,
 };

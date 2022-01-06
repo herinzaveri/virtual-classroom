@@ -25,8 +25,21 @@ module.exports = ({ mysql }) => {
 		return result;
 	};
 
+	const getUserById = async ({ id }) => {
+		const sql = `SELECT *
+                        FROM ${TABLE_NAME}
+                        WHERE id = ?`;
+
+		const values = [id];
+
+		const [result] = await mysql.execute(sql, values);
+
+		return result[0];
+	};
+
 	return Object.freeze({
 		getUserByUsername,
 		addUser,
+		getUserById,
 	});
 };
