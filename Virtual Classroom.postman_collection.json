@@ -1,0 +1,230 @@
+{
+	"info": {
+		"_postman_id": "d99e301d-ddd7-4c36-b1c9-3f49368e6752",
+		"name": "Virtual Classroom",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth Route",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"\",\n    \"password\":\"\",\n    \"type\":\"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/auth",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Welcome Route",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Assignment Route",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "jwt",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\":\"\",\n    \"publishedAt\": \"2022-07-10 15:00:00.000\",\n    \"deadline\": \"2022-07-10 15:00:00.000\",\n    \"assignTo\":[2]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/assignment",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"assignment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Assignment Route",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "jwt",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/assignment/7",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"assignment",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Assignment Route",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "jwt",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/assignment/6",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"assignment",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Assignment Route",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "jwt",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"\",\n    \"assignTo\":[1]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/assignment/6",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"assignment",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Submission Route",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "jwt",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"submission\":\"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/assignment/6/submission",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"assignment",
+						"6",
+						"submission"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Feed Route",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "jwt",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/feed",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"feed"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

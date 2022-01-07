@@ -51,10 +51,37 @@ module.exports = ({ mysql }) => {
 		return result;
 	};
 
+	const addRemark = async ({ userId, assignmentId, submission }) => {
+		const sql = `UPDATE ${TABLE_NAME}
+						SET remark = ?
+						WHERE userId = ?
+							AND assignmentId = ?`;
+
+		const values = [submission, userId, assignmentId];
+
+		const [result] = await mysql.execute(sql, values);
+
+		return result;
+	};
+
+	const getAssignedUsersByAssignmentId = async ({ assignmentId }) => {
+		const sql = `SELECT userId
+						FROM ${TABLE_NAME}
+						WHERE assignmentId = ?`;
+
+		const values = [assignmentId];
+
+		const [result] = await mysql.execute(sql, values);
+
+		return result;
+	};
+
 	return Object.freeze({
 		assignToStudent,
 		getSubmissionByUserIdAndAssignmentId,
 		unassignToStudent,
 		removeAssignmentById,
+		addRemark,
+		getAssignedUsersByAssignmentId,
 	});
 };

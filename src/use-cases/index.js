@@ -1,9 +1,15 @@
+// Import all dependencies
 const Joi = require("joi");
 const jwt = require("jsonwebtoken");
 
 const config = require("../config");
 const DB = require("../data-access");
 
+// Import factory use cases
+const student = require("./student");
+const tutor = require("./tutor");
+
+// Import all common use cases
 const makeGetUserByUsername = require("./get-user-by-username");
 const getUserByUsername = makeGetUserByUsername({
 	usersDb: DB.usersDb,
@@ -47,11 +53,36 @@ const deleteAssignment = makeDeleteAssignment({
 	Joi,
 });
 
+const makeUnassignAssignmentToStudent = require("./unassign-assignment-to-student");
+const unassignAssignmentToStudent = makeUnassignAssignmentToStudent({
+	submissionsDb: DB.submissionsDb,
+	Joi,
+});
+
+const makeUpdateAssignmentById = require("./update-assignment-by-id");
+const updateAssignmentById = makeUpdateAssignmentById({
+	assignmentDb: DB.assignmentDb,
+	assignAssignmentToStudent,
+	unassignAssignmentToStudent,
+	Joi,
+});
+
+const makeAddSubmission = require("./add-submission");
+const addSubmission = makeAddSubmission({
+	submissionsDb: DB.submissionsDb,
+	Joi,
+});
+
+// Export all use cases
 module.exports = {
+	student,
+	tutor,
 	generateJwtToken,
 	getUserByUsername,
 	addNewUser,
 	addNewAssignment,
 	assignAssignmentToStudent,
 	deleteAssignment,
+	updateAssignmentById,
+	addSubmission,
 };

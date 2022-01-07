@@ -5,7 +5,7 @@ const contollers = require("../controllers");
 const middlewares = require("../middlewares");
 
 router.get("/", (req, res) => {
-	res.send("Hello World");
+	res.send("Welcome to Virtual Classroom");
 });
 
 router.post("/auth", contollers.authController);
@@ -16,8 +16,12 @@ router.post("/assignment", middlewares.isTutor, contollers.createAssignmentContr
 
 router.delete("/assignment/:id", middlewares.isTutor, contollers.deleteAssignmentController);
 
-router.get("/test", (req, res) => {
-	res.send(req.user);
-});
+router.get("/assignment/:id", contollers.getAssignmentSubmissionController);
+
+router.put("/assignment/:id", middlewares.isTutor, contollers.updateAssignmentController);
+
+router.put("/assignment/:id/submission", middlewares.isStudent, contollers.addSubmissionController);
+
+router.get("/feed", contollers.getFeedController);
 
 module.exports = router;

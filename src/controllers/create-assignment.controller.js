@@ -1,4 +1,4 @@
-module.exports = ({ addNewAssignment }) => {
+module.exports = ({ addNewAssignment, Joi }) => {
 	return async (req, res) => {
 		const { description, publishedAt, deadline, assignTo } = req.body;
 		const createdBy = req.user.id;
